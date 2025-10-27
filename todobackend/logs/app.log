@@ -1,0 +1,72 @@
+2025-10-23 14:30:03 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-23 14:30:03 [[32minfo[39m]: fetched all todos
+2025-10-23 14:30:26 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-23 14:30:47 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-23 14:31:23 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-23 14:32:10 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-23 16:26:34 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-23 16:26:34 [[32minfo[39m]: Fetched all todos
+2025-10-23 16:27:15 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-23 16:27:15 [[32minfo[39m]: Todo created successfully: Ukelele
+2025-10-23 16:45:27 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-23 16:45:27 [[33mwarn[39m]: Duplicate task: Ukelele
+2025-10-24 10:53:22 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-24 10:53:22 [[32minfo[39m]: Todo created successfully: reading
+2025-10-24 10:53:22 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:53:22 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:53:27 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 10:53:27 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 10:53:27 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:53:27 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:53:28 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 10:53:28 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 10:53:28 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:53:28 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:53:30 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 10:53:30 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 10:53:30 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:53:30 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:53:30 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 10:53:30 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 10:53:30 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:53:30 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:55:04 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:55:04 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:55:21 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 10:55:21 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 10:55:21 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:55:21 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:55:27 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 10:55:27 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 10:55:27 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:55:27 [[32minfo[39m]: Fetched all todos
+2025-10-24 10:55:41 [[32minfo[39m]: Incoming request: PUT /todos/6
+2025-10-24 10:55:41 [[32minfo[39m]: Todo updated successfully: ID 6
+2025-10-24 10:55:41 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 10:55:41 [[32minfo[39m]: Fetched all todos
+2025-10-24 15:54:55 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 15:54:55 [[32minfo[39m]: Fetched all todos
+2025-10-24 15:54:55 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 15:54:55 [[32minfo[39m]: Fetched all todos
+2025-10-24 15:55:03 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-24 15:55:03 [[33mwarn[39m]: Duplicate task: sleep
+2025-10-24 15:55:06 [[32minfo[39m]: Incoming request: POST /todos
+2025-10-24 15:55:06 [[33mwarn[39m]: Duplicate task: sleep
+2025-10-24 16:03:05 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 16:03:05 [[32minfo[39m]: Fetched all todos
+2025-10-24 16:03:05 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 16:03:05 [[32minfo[39m]: Fetched all todos
+2025-10-24 16:03:11 [[32minfo[39m]: Incoming request: PUT /todos/1
+2025-10-24 16:03:11 [[32minfo[39m]: Todo updated successfully: ID 1
+2025-10-24 16:03:11 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 16:03:11 [[32minfo[39m]: Fetched all todos
+2025-10-24 16:03:22 [[32minfo[39m]: Incoming request: PUT /todos/2
+2025-10-24 16:03:22 [[32minfo[39m]: Todo updated successfully: ID 2
+2025-10-24 16:03:22 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 16:03:22 [[32minfo[39m]: Fetched all todos
+2025-10-24 16:03:25 [[32minfo[39m]: Incoming request: DELETE /todos/3
+2025-10-24 16:03:25 [[32minfo[39m]: Todo soft-deleted successfully: ID 3
+2025-10-24 16:03:26 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 16:03:26 [[32minfo[39m]: Fetched all todos
+2025-10-24 16:16:20 [[32minfo[39m]: Incoming request: GET /todos
+2025-10-24 16:16:20 [[32minfo[39m]: Fetched all todos
