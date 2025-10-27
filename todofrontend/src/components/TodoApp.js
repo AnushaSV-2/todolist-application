@@ -10,17 +10,19 @@ function TodoApp() {
   const [editTask, setEditTask] = useState("");
   const [editStatus, setEditStatus] = useState("PENDING");
 
-  // Fetch all todos
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
   const fetchTodos = async () => {
     try {
       const res = await axios.get(API_URL);
       setTodos(res.data);
     } catch (err) {
-      console.error("Error fetching todos:", err.message);
+      console.error(err.message);
     }
   };
 
-  // Add new todo
   const addTodo = async () => {
     if (!taskName.trim()) return alert("Please enter a task");
     try {
@@ -28,28 +30,25 @@ function TodoApp() {
       setTaskName("");
       fetchTodos();
     } catch (err) {
-      console.error("Error adding todo:", err.message);
+      console.error(err.message);
     }
   };
 
-  // Delete todo
   const deleteTodo = async (id) => {
     try {
       await axios.delete(`${API_URL}/${id}`);
       fetchTodos();
     } catch (err) {
-      console.error("Error deleting todo:", err.message);
+      console.error(err.message);
     }
   };
 
-  // Start editing
   const startEdit = (todo) => {
     setEditId(todo.id);
     setEditTask(todo.task_name);
     setEditStatus(todo.status);
   };
 
-  // Update todo
   const updateTodo = async () => {
     try {
       await axios.put(`${API_URL}/${editId}`, {
@@ -61,44 +60,35 @@ function TodoApp() {
       setEditStatus("PENDING");
       fetchTodos();
     } catch (err) {
-      console.error("Error updating todo:", err.message);
+      console.error(err.message);
     }
   };
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
   return (
     <div style={styles.container}>
-      <h2 style={styles.heading}>TODO List</h2>
+      <h2>Todo List</h2>
 
       {/* Add new task */}
       <div style={styles.addBox}>
         <input
-          style={styles.input}
           type="text"
-          placeholder="Enter new task"
+          placeholder="Enter task"
           value={taskName}
           onChange={(e) => setTaskName(e.target.value)}
+          style={styles.input}
         />
-        <button style={styles.addBtn} onClick={addTodo}>
-          Add
-        </button>
+        <button onClick={addTodo}>Add</button>
       </div>
 
-      {/* Edit box */}
       {editId && (
         <div style={styles.editBox}>
-          <h4>Edit Task</h4>
           <input
-            style={styles.input}
             type="text"
             value={editTask}
             onChange={(e) => setEditTask(e.target.value)}
+            style={styles.input}
           />
           <select
-            style={styles.select}
             value={editStatus}
             onChange={(e) => setEditStatus(e.target.value)}
           >
@@ -106,37 +96,24 @@ function TodoApp() {
             <option value="STARTED">STARTED</option>
             <option value="COMPLETED">COMPLETED</option>
           </select>
-          <button style={styles.updateBtn} onClick={updateTodo}>
-            Update
-          </button>
-          <button style={styles.cancelBtn} onClick={() => setEditId(null)}>
-            Cancel
-          </button>
+          <button onClick={updateTodo}>Update</button>
+          <button onClick={() => setEditId(null)}>Cancel</button>
         </div>
       )}
 
-      {/* Todo list */}
-      <div style={styles.listBox}>
+      <div>
         {todos.length === 0 ? (
           <p>No tasks yet.</p>
         ) : (
           todos.map((todo) => (
             <div key={todo.id} style={styles.todoItem}>
-              <div>
-                <strong>{todo.task_name}</strong>
-                <span style={styles.status}> ({todo.status})</span>
-              </div>
-              <div>
-                <button style={styles.editBtn} onClick={() => startEdit(todo)}>
-                  Edit
-                </button>
-                <button
-                  style={styles.deleteBtn}
-                  onClick={() => deleteTodo(todo.id)}
-                >
-                  Delete
-                </button>
-              </div>
+              <span>
+                {todo.task_name} ({todo.status})
+              </span>
+              <span>
+                <button onClick={() => startEdit(todo)}>Edit</button>
+                <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+              </span>
             </div>
           ))
         )}
@@ -145,103 +122,29 @@ function TodoApp() {
   );
 }
 
-// Inline styles (simple box layout)
 const styles = {
   container: {
-    maxWidth: "500px",
+    width: "400px",
     margin: "30px auto",
-    padding: "20px",
-    borderRadius: "10px",
-    backgroundColor: "#f9f9f9",
-    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-    fontFamily: "sans-serif",
-  },
-  heading: {
-    textAlign: "center",
+    fontFamily: "Arial, sans-serif",
   },
   addBox: {
     display: "flex",
-    gap: "10px",
-    marginBottom: "15px",
+    gap: "5px",
+    marginBottom: "10px",
   },
   input: {
     flex: 1,
-    padding: "8px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-  },
-  addBtn: {
-    backgroundColor: "#4CAF50",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    padding: "8px 12px",
-    cursor: "pointer",
-  },
-  listBox: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
+    padding: "5px",
   },
   todoItem: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
-    padding: "10px",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-  },
-  editBtn: {
-    backgroundColor: "#2196F3",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    padding: "5px 10px",
-    marginRight: "5px",
-    cursor: "pointer",
-  },
-  deleteBtn: {
-    backgroundColor: "#f44336",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    padding: "5px 10px",
-    cursor: "pointer",
+    borderBottom: "1px solid #ccc",
+    padding: "5px 0",
   },
   editBox: {
-    backgroundColor: "#eef6ff",
-    padding: "10px",
-    borderRadius: "8px",
-    marginBottom: "15px",
-  },
-  select: {
-    padding: "8px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-    marginLeft: "5px",
-  },
-  updateBtn: {
-    backgroundColor: "#4CAF50",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    padding: "6px 10px",
-    marginLeft: "5px",
-    cursor: "pointer",
-  },
-  cancelBtn: {
-    backgroundColor: "#aaa",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    padding: "6px 10px",
-    marginLeft: "5px",
-    cursor: "pointer",
-  },
-  status: {
-    color: "#555",
-    fontSize: "0.9em",
+    marginBottom: "10px",
   },
 };
 
