@@ -1,4 +1,8 @@
 name: Scorecard supply-chain security
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   branch_protection_rule:
   schedule:
@@ -12,6 +16,7 @@ jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
+
     permissions:
       security-events: write
       id-token: write
@@ -25,7 +30,7 @@ jobs:
           persist-credentials: false
 
       - name: Run OpenSSF Scorecard
-        uses: ossf/scorecard-action@v2.1.2
+        uses: ossf/scorecard-action@v2.4.1   # ✅ updated
         with:
           results_file: results.sarif
           results_format: sarif
